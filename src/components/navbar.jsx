@@ -31,13 +31,13 @@ export const Navbar = () => {
                         </li>
                         <li className="items ">
                             <div className="avatar-badge md">
-                            <Link to="/">
+                                <Link to="/">
                                     <div>
                                         <i className="fas fa-shopping-cart"></i>
                                         {showMenu && "cart"}
                                         <div className="badge text">2</div>
                                     </div>
-                                    </Link>
+                                </Link>
                             </div>
                         </li>
 
