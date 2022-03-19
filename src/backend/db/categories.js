@@ -8,20 +8,20 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
+    categoryName: "men-clothing",
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+      "Online Shopping for Men - Browse & buy from a wide range of men's clothing, menswear & accessories online at best prices ✯Fast Shipping ✯Amazing Offers.",
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
+    categoryName: "footwear",
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+      "Buy online at Footwear. Huge footwear and Clothing range. Order now and avail Best Discounts, Cash on Delivery, Easy Returns and Exchange",
   },
   {
     _id: uuid(),
-    categoryName: "horror",
+    categoryName: "electronics",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "Electronics store: Buy electronic products online from a wide range of mobiles, washing machine, camera, laptop & many more appliances.",
   },
 ];

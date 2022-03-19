@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=BioRhyme:wght@300&display=swap');
+@import url('https://engin-ui.netlify.app/components/style.css');
+.nav-container {
+    box-sizing: border-box;
+    margin: var(--size0);
+    width: 100%;
+    top: var(--size0);
+    position: sticky;
+    padding: var(--size0);
+    padding-right: var(--size6);
+    border: var(--size0);
+    z-index: 999;
+    background-color: rgb(221, 107, 215);
+    flex-wrap: nowrap;
+    height: 4rem;
+    
+}
+
+
+.text.links .items {
+    margin: var(--size0);
+    font-size: var(--size10);
+    margin-left: var(--size3);
+    justify-content: center;
+    align-content: center;
+    cursor: pointer;
+}
+
+.text.links .items:nth-child(1) {
+    width: var(--size40);
+    height: var(--size20);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--size7);
+    background-color: var(--color-success);
+    color: var(--color-white);
+}
+
+.text.links .items:nth-child(1):hover {
+    background-color: var(--color-white);
+    color: var(--color-success);
+}
+
+.text.links .items:nth-child(2) {
+    width: 8rem;
+    height: var(--size20);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--size7);
+    background-color: var(--color-white);
+}
+
+.text.links .items:nth-child(2):hover {
+    color: var(--color-white);
+    background-color: var(--color-icon);
+}
+
+.text.links .items:hover:nth-child(3) {
+    color: var(--color-error);
+}
+
+.text.links .items:nth-child(4) {
+    color: var(--color-success);
+}
+
+.text.links .items:hover:nth-child(4) {
+    color: var(--color-info);
+}
+
+.header .title {
+    margin-left: var(--size8);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.header .title {
+    margin-left: var(--size8);
+}
+
+.items .avatar-badge.md {
+    bottom: 30%;
+}
+.avatar-badge.md .badge.text {
+    top: -10px;
+}
+
+.text-links.mobile li{
+    padding:0 ;
+}
+.text-links-mobile{
+    background-color: #e0ffff;
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 0;
+    margin-top: 15.5rem;
+    padding: 1rem;
+    box-shadow: 1px 1px 1px #808080;
+    height: 100%;
+    width: 20rem;
+    position: relative;
+    z-index: 999;
+}
+.text-links-mobile li:nth-child(5){
+    padding: 0;
+    margin: 0;
+    margin-left: auto;
+}
+.items-menu{
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--size15);
+    cursor: pointer;
+
+}
+.text-links-mobile .items.items-login,.text-links-mobile .items.items.items-signup{
+height: 4rem;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.text-links-mobile .items.items.items-signup{
+    width: 8rem;
+    height: var(--size20);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--size7);
+    background-color: var(--color-white);
+}
+.text-links-mobile .items.items.items-signup:hover{
+    color: var(--color-white);
+    background-color: var(--color-icon);
+
+}
+
+.text-links-mobile .items.items.items-login {
+    width: 8rem;
+    height: var(--size20);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--size7);
+    background-color: var(--color-success);
+    margin-top: 20px;
+}
+
+.text-links-mobile .items.items.items-login:hover {
+    color: var(--color-white);
+    background-color: var(--color-icon);
+}
+
+@media only screen and (max-width: 638px) {
+    .nav-container .links {
+        margin: 0 0 0 var(--size15);
+    }
+    .nav-container .text.links .items.items-login {
+        display: none;
+    }
+    .nav-container{
+        padding: 0;
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width:940px) {
+   
+    .body-div-content {
+        font-size: 2rem;
+    }
+    .nav-container .text.links .items.items-signup {
+        display: none;
+    }
+    .card {
+        margin: var(--size12);
+    }
+    .nav-container{
+        padding: 0;
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width:1125px) {
+    .text.links .items {
+        display: none;
+    }
+
+    .nav-container{
+        padding: 0;
+        margin: 0;
+    }
+    .items-menu{
+        margin-right: 1rem;
+    }
+}
