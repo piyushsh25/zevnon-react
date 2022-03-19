@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom";
 import "../styles/navbar.css"
 export const Navbar = () => {
     const [showMenu, setShowMenu] = useState(false)
@@ -8,35 +9,35 @@ export const Navbar = () => {
                 <div className="header">
                     <div className="title-logo"><i className="fab fa-deezer"></i></div>
                     <div className="title">
-                        <a href="/">Zevnon</a>
+                        <Link to="/">Zevnon</Link>
                     </div>
                     <input type="text" className="input" placeholder="search Zevnon" />
                 </div>
                 <div>
                     <ul className={showMenu ? "text-links-mobile" : "text links"}>
-                        <li className="items items-login"><a href="/login">Login</a></li>
-                        <li className="items items-signup"><a href="/sign-up">Sign up</a></li>
+                        <li className="items items-login">   <Link to="/">Login</Link></li>
+                        <li className="items items-signup">   <Link to="/">Sign up</Link></li>
                         <li className="items">
                             <div className="avatar-badge md">
-                                <a href="/wishlist">
+                                <Link to="/">
                                     <div>
                                         <i className="fas fa-heart"></i>
                                         <div> {showMenu && "wishList"}</div>
                                         <div className="badge text">2</div>
                                     </div>
-                                </a>
+                                </Link>
 
                             </div>
                         </li>
                         <li className="items ">
                             <div className="avatar-badge md">
-                                <a href="/cart">
+                            <Link to="/">
                                     <div>
                                         <i className="fas fa-shopping-cart"></i>
                                         {showMenu && "cart"}
                                         <div className="badge text">2</div>
                                     </div>
-                                </a>
+                                    </Link>
                             </div>
                         </li>
 

@@ -1,4 +1,5 @@
 import "../../styles/HomeBanner.css"
+import { Link } from "react-router-dom";
 export const HomeBanner = () => {
     return <div className="body-div">
         <div className="image-body">
@@ -8,7 +9,8 @@ export const HomeBanner = () => {
             Great stores. Great choices.
         </div>
         <div className="body-div-content h3">
-            <a href="/">Shop Products</a>
+      
+            <Link to="/">Shop Products</Link>
         </div>
     </div>
 }

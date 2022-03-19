@@ -1,4 +1,3 @@
-
 import "../../styles/Categories.css"
 export const Categories=()=>{
     return(
