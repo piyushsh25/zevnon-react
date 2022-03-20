@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom";
-import "../styles/navbar.css"
+import "../../styles/navbar.css"
 export const Navbar = () => {
     const [showMenu, setShowMenu] = useState(false)
     return (
