@@ -13,7 +13,7 @@ const Categories=()=>{
           <div className="text-div">
               <div className="header-top">{product.categoryInfo}</div>
               <div className="header-bottom"> {product.categoryName}</div>
-              <div className="description">{product.description}
+              <div className="description">{product.description.slice(0,100)}...
               </div>
               <ul>
                   <li className="card-icons text-icon"><Link to={`${product.categoryName}`}>Shop</Link> </li>
