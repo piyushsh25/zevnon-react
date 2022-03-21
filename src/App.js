@@ -1,9 +1,17 @@
 import "./App.css";
+<<<<<<< Updated upstream
 import logo from "./logo.png";
+=======
+
+import { HomePage } from "./pages/HomePage.jsx";
+import { ProductListing } from "./pages/ProductListing";
+
+>>>>>>> Stashed changes
 
 function App() {
   return (
     <div className="App">
+<<<<<<< Updated upstream
       <header className="App-header">
         <img src={logo} alt="mockBee logo" width="180" height="180" />
         <h1 className="brand-title">
@@ -36,6 +44,15 @@ function App() {
           </a>
         </div>
       </header>
+=======
+ 
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={ <HomePage/>} />
+        <Route exact path="/products" element={ <ProductListing/>} />
+      </Routes>
+      </BrowserRouter>
+>>>>>>> Stashed changes
     </div>
   );
 }
