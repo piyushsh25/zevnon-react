@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-export const useProducts=({categoryName})=>{
+export const useProducts=()=>{
     const [products,setProducts]=useState([])
     useEffect(()=>{
         async function fetchData(){
@@ -8,7 +8,7 @@ export const useProducts=({categoryName})=>{
             const {data}=await axios.get("/api/products");
             const {products}=data;
          setProducts(products.filter((product)=>{
-           return  categoryName?product.categoryName.includes(categoryName):product
+           return product
          }));
         }catch(err){
             console.log(err);
