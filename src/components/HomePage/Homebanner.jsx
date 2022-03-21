@@ -10,6 +10,7 @@ export const HomeBanner = () => {
         </div>
         <div className="body-div-content h3">
       
+
             <Link to="/products">Shop Products</Link>
         </div>
     </div>
