@@ -1,7 +1,7 @@
 export function discountedItems(product, value) {
     if (value) {
         return product.filter((items) => {
-            return items.discountedPercentage >= value
+            return items.discountedPrice >= value
         })
     }
     return product

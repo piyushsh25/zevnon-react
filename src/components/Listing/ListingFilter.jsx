@@ -18,24 +18,24 @@ return (<div className="body-container">
                 >Clear</div>
             </div>
             <div className="discount-percentage">
-                <div className="h5">Discount %</div>
+                <div className="h5">Discount Price</div>
 
-                <input step="25" type="range" min="0" max="90"
+                <input step="25-" type="range" min="0" max="1000"
                     list="tickmarks"
                     checked={state.discountValue}
                     onClick={(e) => dispatch({ type: "discount", payload: e.target.value })}
                 />
                 <datalist id="tickmarks">
                     <option value="0">0</option>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                    <option value="75">75</option>
+                    <option value="25">250</option>
+                    <option value="50">500</option>
+                    <option value="75">750</option>
                 </datalist>
                 <label className="filter-price">
-                    <p id="price-max">0%</p>
-                    <p id="price-min">25%</p>
-                    <p id="price-mid">50%</p>
-                    <p id="price-max">75%</p>
+                    <p id="price-max">0</p>
+                    <p id="price-min">250</p>
+                    <p id="price-mid">500</p>
+                    <p id="price-max">750</p>
                 </label>
 
             </div>
