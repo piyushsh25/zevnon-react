@@ -1,9 +1,8 @@
-import { useProducts } from "../../hooks/index"
 import { useSortedProduct } from "../../hooks/Filters";
 export const ListingProducts = () => {
     const { sortPriceHighLow } = useSortedProduct()
 
-    return (sortPriceHighLow.length === 0) ? <div className="shopping-section error-product-list">Errr... No products found. Try changing the filters</div> : <div className="shopping-section">
+    return (sortPriceHighLow.length === 0) ? <div className="shopping-section error-product-list">Errr... No products found. Try changing the filters</div> : <div className="shopping-section product-listing-page">
         {sortPriceHighLow.map((product) => {
             return <div className="card" key={product.id}>
                 <div className="img-div">

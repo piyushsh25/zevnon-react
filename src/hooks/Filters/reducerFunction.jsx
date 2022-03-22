@@ -22,16 +22,21 @@ export function reducerFunction(state, action) {
             return { ...state, discountValue: action.payload }
         case "clear":
             return {
-                ...state, sortBy: null, priceSelector: null, discountValue: null, stars1: false,
+                ...state,
+                sortBy: null,
+                priceSelector: null,
+                discountValue: 0,
+                priceHighLow: null,
+                stars1: false,
                 stars2: false,
                 stars3: false,
                 stars4: false,
-                priceHighLow:null
+                
             }
         case "price_sort":
-           return {...state,priceHighLow:action.payload}
+            return { ...state, priceHighLow: action.payload }
 
         default:
-        return state
+            return state
     }
 }

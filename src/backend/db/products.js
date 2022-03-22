@@ -157,7 +157,7 @@ export const products = [
 
     img: "	https://rukminim2.flixcart.com/image/714/857/kfbfr…rithik-roshan-original-imafvswfsfanbqye.jpeg?q=50",
 
-    categoryName: "men-clothing",
+    categoryName: "electronics",
   },
   {
     _id: uuid(),

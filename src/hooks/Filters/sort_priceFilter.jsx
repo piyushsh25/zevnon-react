@@ -1,5 +1,4 @@
-export function sortedProducts(product, sort) {
-
+export function SortedProducts(product, sort) {
     if (sort === "low_to_high") {
         return product.sort((a, b) => {
             return (a.price - b.price);
