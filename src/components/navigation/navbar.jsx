@@ -31,7 +31,7 @@ export const Navbar = () => {
                         </li>
                         <li className="items ">
                             <div className="avatar-badge md">
-                                <Link to="/">
+                                <Link to="/cart">
                                     <div>
                                         <i className="fas fa-shopping-cart"></i>
                                         {showMenu && "cart"}

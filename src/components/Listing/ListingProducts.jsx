@@ -1,7 +1,25 @@
+import { useCartContext } from "../../hooks/cart/cart-context";
 import { useSortedProduct } from "../../hooks/Filters";
 export const ListingProducts = () => {
     const { sortPriceHighLow } = useSortedProduct()
-
+    const { cartItems, setCartItems } = useCartContext()
+    function addToCartHandler({ id, title, price, discountedPrice }) {
+        let productPresent = false
+        let updatedItems = cartItems.map((items) => {
+            if (items.id === id) {
+                productPresent = true
+                return { ...items, quantity: items.quantity +1}
+            }
+            else {
+                return items
+            }
+        });
+        if (!productPresent) {
+            updatedItems = [...cartItems, { id, title, price, discountedPrice, quantity: 1 }]
+        }
+        setCartItems(updatedItems)
+    }
+  console.log(cartItems);
     return (sortPriceHighLow.length === 0) ? <div className="shopping-section error-product-list">Errr... No products found. Try changing the filters</div> : <div className="shopping-section product-listing-page">
         {sortPriceHighLow.map((product) => {
             return <div className="card" key={product.id}>
@@ -13,13 +31,13 @@ export const ListingProducts = () => {
                     <div className="header-bottom">
                         <div className="discounted price">${product.price}</div>
                         <div className="selling-price line-through">
-                          ${product.price+product.discountedPrice}
+                            ${product.price + product.discountedPrice}
                         </div>
                         <div className="product-rating"> {product.rating}★</div>
                     </div>
-                    <div className="description">Buy now at {(product.discountedPrice/product.price*100).toFixed(2)}% off. </div>
+                    <div className="description">Buy now at {(product.discountedPrice / product.price * 100).toFixed(2)}% off. </div>
                     <ul>
-                        <li className="card-icons text-icon"><i className="fas fa-shopping-cart"></i></li>
+                        <li className="card-icons text-icon" onClick={() => addToCartHandler(product)}><i className="fas fa-shopping-cart"></i></li>
                         <li className="card-icons text-icon">Buy Now</li>
                         <li className="card-icons"><i className="lni lni-heart"></i></li>
                         <li className="card-icons"> <i className="lni lni-share-alt-1"></i></li>

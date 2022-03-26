@@ -1,0 +1,108 @@
+/* increase/decrease  item */
+
+.increase-decrease {
+    display: flex;
+    align-items: center;
+    width: 6rem;
+    border: 1px solid gray;
+    border-radius: var(--size2);
+    font-size: var(--size8);
+    margin: auto;
+    padding: var(--size3) 0;
+}
+
+.increase-decrease button:nth-child(odd) {
+    margin: 0 var(--size7);
+    cursor: pointer;
+    background-color: transparent;
+    border-style: none;
+}
+
+.increase-decrease button:hover{
+  background-color: bisque;
+}
+
+.line-through {
+    color: var(--color-error);
+    margin-left: 6px;
+}
+
+.h4{
+    margin-left: 1rem;
+}
+/* price summary */
+
+.price-summary {
+    background-color: lightblue;
+    padding: var(--size11);
+    height: 100%;
+    width: 30%;
+    position: sticky;
+    top: 10%;
+}
+
+
+/*product in checkout bill */
+
+.product-summary {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.product-content {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.price-summary .price-header {
+    display: flex;
+}
+
+.price-header .title {
+    margin-left: var(--size8);
+}
+
+.total-price {
+    border-bottom: var(--size1) solid var(--color-black);
+}
+
+.total-price div {
+    margin: var(--size2) 0;
+    padding: var(--size2) 0;
+}
+
+.price-summary .h5 {
+    color: var(--color-success);
+}
+
+.button.outline {
+    margin: 0;
+    padding: 0;
+}
+
+.h4 {
+    margin-right: var(--size10);
+}
+
+.button.outline,
+.h4 {
+    display: inline-flex;
+}
+.button.outline{
+    border-color: #ff0000;
+    width: 7rem;
+}
+
+.cart-page-footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+@media only screen and (max-width:940px) {
+    .increase-decrease button:nth-child(odd) {
+        margin: 0 var(--size3);
+    }
+
+}
