@@ -93,15 +93,27 @@
 .h4 {
     display: inline-flex;
 }
-.button.outline{
-    border-color: #ff0000;
-    width: 7rem;
+.action-button{
+  background-color: rgb(248, 241, 198);
+  border-style: none;
+  cursor: pointer;
+  padding: 10%;
+}
+.discounted-percentage{
+    color: rgb(20, 141, 9);
+    font-size: 16px;
+}
+.cart-wishList{
+    background-color: transparent;
+    border-style: none;
+    
 }
 
-.cart-page-footer{
+.card .text-div .cart-page-footer{
     display: flex;
     justify-content: space-around;
     align-items: center;
+ margin-top: 0;
 }
 @media only screen and (max-width:940px) {
     .increase-decrease button:nth-child(odd) {

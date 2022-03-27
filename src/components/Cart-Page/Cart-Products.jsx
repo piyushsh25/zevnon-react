@@ -35,10 +35,12 @@ export const CartProduct = () => {
 
                                 <ul className="cart-page-footer">
                                     <li className="h4">${items.price}</li>
+                                    <li className="discounted-percentage">{(items.discountedPrice / items.price * 100).toFixed(2)}% off.</li>
                                     <li>
-                                        <div class="button outline" onClick={() => dispatch({type:"removeHandler",payload:items})}> Remove </div>
+                                        <button class="action-button" onClick={() => dispatch({type:"removeHandler",payload:items})}> Remove </button>
                                     </li>
                                 </ul>
+                                <button className="cart-wishList">Move to wishList</button>
                             </div>
                         </div>
                     })}
