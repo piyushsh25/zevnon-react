@@ -1,8 +1,10 @@
 import { useState } from "react"
 import { Link } from "react-router-dom";
+import { useCartContext } from "../../hooks/cart/cart-context";
 import "../../styles/navbar.css"
 export const Navbar = () => {
     const [showMenu, setShowMenu] = useState(false)
+    const {state}=useCartContext()
     return (
         <div className="main-div">
             <header className={showMenu ? "nav-container nav" : "nav-container"}>
@@ -31,11 +33,11 @@ export const Navbar = () => {
                         </li>
                         <li className="items ">
                             <div className="avatar-badge md">
-                                <Link to="/">
+                                <Link to="/cart">
                                     <div>
                                         <i className="fas fa-shopping-cart"></i>
                                         {showMenu && "cart"}
-                                        <div className="badge text">2</div>
+                                        <div className="badge text">{state.cartCount}</div>
                                     </div>
                                 </Link>
                             </div>

@@ -1,6 +1,11 @@
+
+import { useCartContext } from "../../hooks/cart/cart-context";
 import { useSortedProduct } from "../../hooks/Filters";
+
 export const ListingProducts = () => {
     const { sortPriceHighLow } = useSortedProduct()
+    const {state,dispatch } = useCartContext()
+
 
     return (sortPriceHighLow.length === 0) ? <div className="shopping-section error-product-list">Errr... No products found. Try changing the filters</div> : <div className="shopping-section product-listing-page">
         {sortPriceHighLow.map((product) => {
@@ -13,13 +18,13 @@ export const ListingProducts = () => {
                     <div className="header-bottom">
                         <div className="discounted price">${product.price}</div>
                         <div className="selling-price line-through">
-                          ${product.price+product.discountedPrice}
+                            ${product.price + product.discountedPrice}
                         </div>
                         <div className="product-rating"> {product.rating}★</div>
                     </div>
-                    <div className="description">Buy now at {(product.discountedPrice/product.price*100).toFixed(2)}% off. </div>
+                    <div className="description">Buy now at {(product.discountedPrice / product.price * 100).toFixed(2)}% off. </div>
                     <ul>
-                        <li className="card-icons text-icon"><i className="fas fa-shopping-cart"></i></li>
+                        <li className="card-icons text-icon" onClick={() =>dispatch({type:"addToCartHandler",payload:product})}><i className="fas fa-shopping-cart"></i></li>
                         <li className="card-icons text-icon">Buy Now</li>
                         <li className="card-icons"><i className="lni lni-heart"></i></li>
                         <li className="card-icons"> <i className="lni lni-share-alt-1"></i></li>
