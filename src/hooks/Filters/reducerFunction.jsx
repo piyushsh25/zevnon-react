@@ -18,7 +18,7 @@ export function reducerFunction(state, action) {
 
             return { ...state, priceSelector: action.payload }
         case "discount":
-            console.log(action);
+       
             return { ...state, discountValue: action.payload }
         case "clear":
             return {

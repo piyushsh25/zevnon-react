@@ -1,20 +1,23 @@
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../hooks/cart/cart-context";
+import { useWishContext } from "../../hooks/wishList/wish-context";
 
 export const CartProduct = () => {
-    const { state,dispatch } = useCartContext();
-
+    const { state, dispatch } = useCartContext();
+    const { wishState, wishDispatch } = useWishContext();
+    let {addToishListMessage}=useWishContext();
     return <div>
-
-        {state.cartItems.length === 0 ? <div>No products availavle in cart.</div> :
+        <div className="h3">total items in cart: {state.cartCount}</div>
+        {state.cartItems.length === 0 ? <div className="empty-message"> No products availavle in cart.</div> :
 
             <div className="product-summary">
+
                 <div className="product-content">
                     {state.cartItems.map((items) => {
-                  
+
                         return <div className="card text-overlay-card no-footer" key={items.id}>
                             <div className="img-div">
-                                <img src="https://engin-ui.netlify.app/documentation/landing-components/card/image.jpg" alt="product-img" />
+                                <img src={items.img} alt="product-img" />
                             </div>
                             <div className="text-div">
                                 <div className="header-top">
@@ -26,9 +29,9 @@ export const CartProduct = () => {
                                 </div>
                                 <div className="header-bottom">
                                     <ul className="increase-decrease">
-                                        <button onClick={() => items.quantity <= 1 ? dispatch({type:"removeHandler",payload:items}) : dispatch({type:"decrementHandler",payload:items})}>-</button>
+                                        <button onClick={() => items.quantity <= 1 ? dispatch({ type: "removeHandler", payload: items }) : dispatch({ type: "decrementHandler", payload: items })}>-</button>
                                         <li>{items.quantity}</li>
-                                        <button onClick={() => dispatch({type:"incrementHandler",payload:items})}>+</button>
+                                        <button onClick={() => dispatch({ type: "incrementHandler", payload: items })}>+</button>
                                     </ul>
                                 </div>
                                 <div className="description">{items.title}</div>
@@ -37,39 +40,52 @@ export const CartProduct = () => {
                                     <li className="h4">${items.price}</li>
                                     <li className="discounted-percentage">{(items.discountedPrice / items.price * 100).toFixed(2)}% off.</li>
                                     <li>
-                                        <button class="action-button" onClick={() => dispatch({type:"removeHandler",payload:items})}> Remove </button>
+                                        <button className="action-button" onClick={() => dispatch({ type: "removeHandler", payload: items })}> Remove </button>
                                     </li>
                                 </ul>
-                                <button className="cart-wishList">Move to wishList</button>
+                                <button className="cart-wishList" onClick={
+                                    (() => wishDispatch({ type: "wishlist", payload: items }))
+                                }>
+                                    {/* Add to wish */}
+                                       
+                                    {addToishListMessage=wishState.wishItems.some((item) => {
+                                        if (item.id === items.id) {
+                                            return true;
+                                        }
+                                    })
+                               
+                                    }
+                                   {addToishListMessage?"In wishList":"Add to wishList"}
+                                </button>
                             </div>
                         </div>
                     })}
 
 
                 </div>
-                <div class="price-summary">
-                    <div class="price-header">
-                        <div class="title-logo"><i class="fab fa-deezer"></i></div>
-                        <div class="title">
+                <div className="price-summary">
+                    <div className="price-header">
+                        <div className="title-logo"><i className="fab fa-deezer"></i></div>
+                        <div className="title">
                             <Link to="/">Zevnon</Link>
                         </div>
                     </div>
-                    <div class="h4">
+                    <div className="h4">
                         Total : $ {state.totalPrice}
                     </div>
-                 
-                    <div class="button outline">CheckOut</div>
 
-                    <div class="">
+                    <div className="button outline">CheckOut</div>
+
+                    <div className="">
                         Order summary
                     </div>
-                    <div class="h5">
+                    <div className="h5">
                         You save 49% on your order.
                     </div>
                     <div>
-                        <div class="total-price">
+                        <div className="total-price">
                             {state.cartItems.map((items) => {
-                                return <div>
+                                return <div key={items.id}>
                                     <div>{items.title}</div>
                                     <div>{items.quantity} * ${items.price} =${items.quantity * items.price}</div>
                                 </div>

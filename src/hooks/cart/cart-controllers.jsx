@@ -1,9 +1,9 @@
    export function reducerFunction(state, action) {
     switch (action.type) {
         case "addToCartHandler":
-
+         
             let productPresent = false
-            const { id, title, price, discountedPrice } = action.payload;
+            const { id, title, price, discountedPrice,img } = action.payload;
             let updatedItems = state.cartItems.map((items) => {
                 if (items.id === id) {
                     productPresent = true
@@ -14,7 +14,8 @@
                 }
             });
             if (!productPresent) {
-                updatedItems = [...state.cartItems, { id, title, price, discountedPrice, quantity: 1 }]
+                updatedItems = [...state.cartItems, { id, title, price,img, discountedPrice, quantity: 1 }]
+
             }
             return {
                 ...state, cartCount: state.cartCount + 1, cartItems: updatedItems, totalPrice: state.totalPrice + action.payload.price

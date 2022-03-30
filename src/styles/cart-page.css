@@ -43,7 +43,10 @@
     overflow: auto;
 }
 
-
+.empty-message{
+    display: flex;
+    justify-content: center;
+}
 /*product in checkout bill */
 
 .product-summary {

@@ -1,8 +1,12 @@
 import { useState } from "react"
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../hooks/cart/cart-context";
+import { useWishContext } from "../../hooks/wishList/wish-context";
+
 import "../../styles/navbar.css"
-export const Navbar = () => {
+export const Navbar = () => {  
+    const {wishState}=useWishContext();
+ 
     const [showMenu, setShowMenu] = useState(false)
     const {state}=useCartContext()
     return (
@@ -21,11 +25,11 @@ export const Navbar = () => {
                         <li className="items items-signup">   <Link to="/">Sign up</Link></li>
                         <li className="items">
                             <div className="avatar-badge md">
-                                <Link to="/">
+                                <Link to="/wishlist">
                                     <div>
                                         <i className="fas fa-heart"></i>
                                         <div> {showMenu && "wishList"}</div>
-                                        <div className="badge text">2</div>
+                                        <div className="badge text">{wishState.wishCount}</div>
                                     </div>
                                 </Link>
 

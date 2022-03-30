@@ -1,17 +1,18 @@
 
 import { useCartContext } from "../../hooks/cart/cart-context";
 import { useSortedProduct } from "../../hooks/Filters";
+import { useWishContext } from "../../hooks/wishList/wish-context";
 
 export const ListingProducts = () => {
     const { sortPriceHighLow } = useSortedProduct()
     const {state,dispatch } = useCartContext()
-
-
+    let {addToishListMessage}=useWishContext();
+   const {wishState,wishDispatch}=useWishContext();
     return (sortPriceHighLow.length === 0) ? <div className="shopping-section error-product-list">Errr... No products found. Try changing the filters</div> : <div className="shopping-section product-listing-page">
         {sortPriceHighLow.map((product) => {
             return <div className="card" key={product.id}>
                 <div className="img-div">
-                    <img src="https://rukminim2.flixcart.com/image/832/832/kw9krrk0/headphone/z/i/p/-original-imag8z6ht9qffnju.jpeg?q=70" alt="product d" />
+                    <img src={product.img} alt="product d" />
                 </div>
                 <div className="text-div">
                     <div className="header-top">{product.title.slice(0, 20)}...</div>
@@ -26,7 +27,17 @@ export const ListingProducts = () => {
                     <ul>
                         <li className="card-icons text-icon" onClick={() =>dispatch({type:"addToCartHandler",payload:product})}><i className="fas fa-shopping-cart"></i></li>
                         <li className="card-icons text-icon">Buy Now</li>
-                        <li className="card-icons"><i className="lni lni-heart"></i></li>
+                     
+                        <li className="card-icons" onClick={(()=>wishDispatch({type:"wishlist",payload:product}))}>
+                        {addToishListMessage=wishState.wishItems.some((items)=>{
+                            if (items.id===product.id){
+                                return true;
+                            }
+                            return false
+                        })
+                        }
+                        {addToishListMessage?<i className="lni lni-heart-filled"></i>:<i className="lni lni-heart"></i>}
+                        </li>
                         <li className="card-icons"> <i className="lni lni-share-alt-1"></i></li>
                         <li className="card-icons"><i className="lni lni-more-alt"></i></li>
                     </ul>
