@@ -4,9 +4,9 @@ import { useWishContext } from "../../hooks/wishList/wish-context"
 export const WishItems = () => {
     const { wishState, wishDispatch } = useWishContext();
     const { state, dispatch } = useCartContext();
-    let addToCartMessage;
+  
     return <div>
-        <div className="h4">Total items in wishList: {wishState.wishCount}</div>
+        <div className="h4">Total items: {wishState.wishCount}</div>
         <div className="wishlist-summary">
             <div className="product-content">
                 {wishState.wishItems.map((items) => {
@@ -23,14 +23,14 @@ export const WishItems = () => {
                                 <li>
                                     <div type="button" >
                                         &nbsp;
-                                        {addToCartMessage = state.cartItems.some((item) => {
+                                        {wishState.addToCartMessage = state.cartItems.some((item) => {
                                             if (item.id === items.id) {
                                                 return true;
                                             }
                                             return false
                                         })
                                         }
-                                        <button onClick={() => dispatch({ type: "addToCartHandler", payload: items })} disabled={addToCartMessage}><i className="fas fa-cart-plus"></i>{addToCartMessage ? "In cart" : "Add"}</button>
+                                        <button onClick={() => dispatch({ type: "addToCartHandler", payload: items })} disabled={wishState.addToCartMessage}><i className="fas fa-cart-plus"></i>{wishState.addToCartMessage ? "In cart" : "Add"}</button>
                                         <button onClick={() => wishDispatch({ type: "remove", payload: items })}>Remove</button>
                                     </div>
 
