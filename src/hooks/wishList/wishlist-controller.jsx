@@ -13,18 +13,20 @@ export function wishReducerFunction(state,action){
             const {id,title,img,price,discountedPrice}=action.payload
             if(!productInWishList){
                 updatedWishList=[...state.wishItems,{id,title,img,price,discountedPrice}]
-                return {...state,wishCount:state.wishCount+1,wishItems:updatedWishList}
+                return {...state,wishCount:state.wishCount+1,wishItems:updatedWishList,inWishlist:true}
             }
             
             return {...state}
           case "remove":
+             
               const removedItems=state.wishItems.filter((items)=> {
+                console.log(state);
                   if (items.id===action.payload.id){
                       return  action.payload!==items
                   }
                   return items
               })
-              return {...state,wishItems:removedItems,wishCount:state.wishCount-1}
+              return {...state,wishItems:removedItems,wishCount:state.wishCount-1,addToishListMessage:false,inWishlist:false}
        default:
            return {...state}
     }

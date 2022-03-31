@@ -9,7 +9,8 @@ export const WishProvider=({children})=>{
 const [wishState,wishDispatch]=useReducer(wishReducerFunction,{
 wishCount:0,
 wishItems:[],
-addToishListMessage:null
+addToishListMessage:false,
+inWishlist:false
 })
     return <WishContext.Provider value={{wishState,wishDispatch}}>
         {children}

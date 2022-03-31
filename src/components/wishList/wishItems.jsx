@@ -10,7 +10,7 @@ export const WishItems = () => {
         <div className="wishlist-summary">
             <div className="product-content">
                 {wishState.wishItems.map((items) => {
-                    return <div className="card text-overlay-card no-footer">
+                    return <div className="card text-overlay-card no-footer" key={items.id}>
                         <div className="img-div">
                             <img src={items.img} alt="product-img" />
                         </div>
