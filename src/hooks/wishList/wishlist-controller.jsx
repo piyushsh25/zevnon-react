@@ -31,3 +31,20 @@ export function wishReducerFunction(state,action){
            return {...state}
     }
   }
+
+ export function wishListHandler(product,wishState, wishDispatch) {
+    let addToishListMessage = false;
+    wishState.wishItems.some((items) => {
+        if (items.id === product.id) {
+            addToishListMessage = true;
+            wishDispatch({ type: "remove", payload: items })
+
+            return items;
+        }
+        return items;
+
+    })
+    if (!addToishListMessage) {
+        wishDispatch({ type: "wishlist", payload: product })
+    }
+}
