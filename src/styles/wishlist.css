@@ -1,23 +1,21 @@
 /* increase/decrease  item */
 
 .wishlist-summary {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
 }
 
-
 .line-through {
-    color: var(--color-error);
+  color: var(--color-error);
 }
 
 .product-content {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .h4 {
-    margin-left: var(--size10);
-    color: var(--color-info);
+  margin-left: var(--size10);
+  color: var(--color-info);
 }

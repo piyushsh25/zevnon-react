@@ -13,10 +13,10 @@ function App() {
 
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={ <HomePage/>} />
-        <Route exact path="/products" element={ <ProductListing/>} />
-        <Route exact path="/cart" element={ <CartPage/>} />
-        <Route exact path="/wishlist" element={<WishList/>} />
+        <Route path="/" element={ <HomePage/>} />
+        <Route path="/products" element={ <ProductListing/>} />
+        <Route path="/cart" element={ <CartPage/>} />
+        <Route path="/wishlist" element={<WishList/>} />
       </Routes>
       </BrowserRouter>
     </div>

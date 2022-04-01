@@ -17,7 +17,7 @@ export const CartProduct = () => {
 
                         return <div className="card text-overlay-card no-footer" key={items.id}>
                             <div className="img-div">
-                                <img src={items.img} alt="product-img" />
+                                <img src={items.img} alt={items.title} />
                             </div>
                             <div className="text-div">
                                 <div className="header-top">
@@ -76,7 +76,7 @@ export const CartProduct = () => {
 
                     <div className="button outline">CheckOut</div>
 
-                    <div className="">
+                    <div>
                         Order summary
                     </div>
                     <div className="h5">
