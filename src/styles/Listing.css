@@ -148,6 +148,9 @@ label {
 .product-rating{
     margin-left: 1rem;
 }
+.lni.lni-heart-filled{
+    color: red;
+}
 @media only screen and (max-width:940px) {
 
     .shopping-section.product-listing-page {

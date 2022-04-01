@@ -16,7 +16,7 @@ const Categories=()=>{
               <div className="description">{product.description.slice(0,100)}...
               </div>
               <ul>
-                  <li className="card-icons text-icon"><Link to={`${product.categoryName}`}>Shop</Link> </li>
+                  <li className="card-icons text-icon"><Link to="/products">Shop</Link> </li>
                   <li className="card-icons icons"> <i className="lni lni-share-alt-1"></i></li>
                   <li className="card-icons icons"><i className="lni lni-more-alt"></i></li>
               </ul>

@@ -12,7 +12,7 @@ export const products = [
     discountedPrice: 100,
 
     size: "medium",
-    img: "	https://rukminim2.flixcart.com/image/714/857/kfbfr…rithik-roshan-original-imafvswfsfanbqye.jpeg?q=50",
+    img: 	"https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=600",
     categoryName: "men-clothing",
   },
   {
@@ -23,7 +23,7 @@ export const products = [
 
     discountedPrice: 100,
     size: "medium",
-    img: "	https://rukminim2.flixcart.com/image/714/857/kfbfr…rithik-roshan-original-imafvswfsfanbqye.jpeg?q=50",
+    img: 	"https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=600",
     categoryName: "men-clothing",
   },
   {
@@ -34,7 +34,7 @@ export const products = [
 
     discountedPrice: 300,
     size: "small",
-    img: "	https://rukminim2.flixcart.com/image/714/857/kfbfr…rithik-roshan-original-imafvswfsfanbqye.jpeg?q=50",
+    img: 	"https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=600",
     categoryName: "men-clothing",
   },
   {
@@ -45,7 +45,7 @@ export const products = [
 
     discountedPrice: 350,
     size: "medium",
-    img: "	https://rukminim2.flixcart.com/image/714/857/kfbfr…rithik-roshan-original-imafvswfsfanbqye.jpeg?q=50",
+    img: 	"https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=600",
     categoryName: "footwear",
   },
   {
@@ -55,7 +55,7 @@ export const products = [
     price: 3100,
     discountedPrice: 1000,
     size: "medium",
-    img: "	https://rukminim2.flixcart.com/image/714/857/kfbfr…rithik-roshan-original-imafvswfsfanbqye.jpeg?q=50",
+    img: 	"https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=600",
     categoryName: "footwear",
   },
   {
@@ -65,7 +65,7 @@ export const products = [
     price: 1220,
     discountedPrice: 139,
     size: "small",
-    img: "	https://rukminim2.flixcart.com/image/714/857/kfbfr…rithik-roshan-original-imafvswfsfanbqye.jpeg?q=50",
+    img: 	"https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=600",
     categoryName: "footwear",
   },
   {
@@ -75,7 +75,7 @@ export const products = [
     price: 1220,
     discountedPrice: 151,
     size: "medium",
-    img: "	https://rukminim2.flixcart.com/image/714/857/kfbfr…rithik-roshan-original-imafvswfsfanbqye.jpeg?q=50",
+    img: 	"https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=600",
     categoryName: "footwear",
   },
   {
@@ -86,7 +86,7 @@ export const products = [
 
     discountedPrice: 1750,
     size: "medium",
-    img: "	https://rukminim2.flixcart.com/image/714/857/kfbfr…rithik-roshan-original-imafvswfsfanbqye.jpeg?q=50",
+    img: 	"https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=600",
     categoryName: "footwear",
   },
   {
@@ -97,7 +97,7 @@ export const products = [
 
     discountedPrice: 1100,
     size: "medium",
-    img: "	https://rukminim2.flixcart.com/image/714/857/kfbfr…rithik-roshan-original-imafvswfsfanbqye.jpeg?q=50",
+    img: 	"https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=600",
     categoryName: "bagpack",
   },
   {
@@ -107,7 +107,7 @@ export const products = [
     price: 41000,
 
     discountedPrice: 2900,
-    img: "	https://rukminim2.flixcart.com/image/714/857/kfbfr…rithik-roshan-original-imafvswfsfanbqye.jpeg?q=50",
+    img: 	"https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=600",
 
     categoryName: "electronics",
   },
@@ -119,7 +119,7 @@ export const products = [
     price: 50000,
 
     discountedPrice: 5100,
-    img: "	https://rukminim2.flixcart.com/image/714/857/kfbfr…rithik-roshan-original-imafvswfsfanbqye.jpeg?q=50",
+    img: 	"https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=600",
 
     categoryName: "electronics",
   },
@@ -130,7 +130,7 @@ export const products = [
     price: 50000,
 
     discountedPrice: 9100,
-    img: "	https://rukminim2.flixcart.com/image/714/857/kfbfr…rithik-roshan-original-imafvswfsfanbqye.jpeg?q=50",
+    img: 	"https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=600",
 
     categoryName: "electronics",
   },
@@ -142,7 +142,7 @@ export const products = [
     price: 43000,
 
     discountedPrice: 2100,
-    img: "	https://rukminim2.flixcart.com/image/714/857/kfbfr…rithik-roshan-original-imafvswfsfanbqye.jpeg?q=50",
+    img: 	"https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=600",
 
     categoryName: "electronics",
   },
@@ -155,7 +155,7 @@ export const products = [
 
     discountedPrice: 9100,
 
-    img: "	https://rukminim2.flixcart.com/image/714/857/kfbfr…rithik-roshan-original-imafvswfsfanbqye.jpeg?q=50",
+    img: 	"https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=600",
 
     categoryName: "electronics",
   },
@@ -167,7 +167,7 @@ export const products = [
     price: 77000,
 
     discountedPrice: 1100,
-    img: "	https://rukminim2.flixcart.com/image/714/857/kfbfr…rithik-roshan-original-imafvswfsfanbqye.jpeg?q=50",
+    img: 	"https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=600",
 
     categoryName: "electronics",
   },
@@ -177,7 +177,7 @@ export const products = [
     rating: "4.3",
     price: 50000,
     discountedPrice: 6100,
-    img: "	https://rukminim2.flixcart.com/image/714/857/kfbfr…rithik-roshan-original-imafvswfsfanbqye.jpeg?q=50",
+    img: 	"https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=600",
 
     categoryName: "electronics",
   },
@@ -189,7 +189,7 @@ export const products = [
     price: 75000,
 
     discountedPrice: 4100,
-    img: "	https://rukminim2.flixcart.com/image/714/857/kfbfr…rithik-roshan-original-imafvswfsfanbqye.jpeg?q=50",
+    img: 	"https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=600",
     categoryName: "electronics",
 
   },
