@@ -3,7 +3,7 @@ import { WishItems } from "../components/wishList/wishItems";
 import "../styles/wishlist.css"
 export const WishList = () => {
   return <div>
-    ( <Navbar />
-    <WishItems />)
+    <Navbar />
+    <WishItems />
   </div>
 }

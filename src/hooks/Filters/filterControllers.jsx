@@ -3,7 +3,7 @@ function clearFilterHandler(dispatch) {
     dispatch({ type: "clear" })
 }
 function discountHandler(e,dispatch) {
-    dispatch({ type: "discount", payload: e.target.value })
+    dispatch({ type: "discount", payload: Number(e) })
 }
 function priceHighToLowHandler(dispatch) {
     dispatch({ type: "price_sort", payload: "low_to_high" })
@@ -14,7 +14,7 @@ function priceLowToHighHandler(dispatch) {
 }
 
 function sortByCategoryHandler(e, dispatch) {
-    dispatch({ type: "sort", payload: e.target.value })
+    dispatch({ type: "sort", payload: e })
 }
 function priceSortHandler(e, dispatch) {
     dispatch({ type: "price", payload: Number(e.target.value) })

@@ -31,8 +31,10 @@ export function reducerFunction(state, action) {
                 stars2: false,
                 stars3: false,
                 stars4: false,
-                
+                filterMenu:true
             }
+        case "filterMenu":
+            return{...state,filterMenu:!state.filterMenu}
         case "price_sort":
             return { ...state, priceHighLow: action.payload }
 

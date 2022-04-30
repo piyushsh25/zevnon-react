@@ -1,0 +1,106 @@
+.main-login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.nav-sign-up{
+  border: var(--size0);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.title-logo.header{
+  margin-right: 1.5rem;
+}
+
+.nav-container .title-logo,
+.nav-container .title {
+  margin-top: var(--size5);
+}
+
+.form-signup-login .nav-container {
+  background-color: inherit;
+}
+
+.form label {
+  margin-left: var(--size5);
+}
+
+.form {
+  padding-top: var(--size4);
+}
+
+.form .input {
+  width: 90%;
+  margin-top: var(--size0);
+  border-radius: var(--size4);
+}
+
+/* submit button */
+
+.form .submit {
+  width: 60%;
+  margin-top: 0;
+  border-radius: var(--size4);
+  background-color: var(--color-white);
+}
+
+.form-signup-login .form .input {
+  background-color: rgb(255, 255, 255);
+}
+.input-password1 {
+  position: relative;
+}
+.input,
+.submit {
+  margin: var(--size5);
+}
+
+/* signup login form */
+
+.form-signup-login {
+  background-color: rgba(172, 225, 255, 0.991);
+  margin-top: var(--size5);
+  border-radius: var(--size4);
+  border: var(--size1) solid var(--color-black);
+  padding: var(--size10) 0;
+  
+}
+
+/* link to signup login instead */
+
+.change-method {
+  color: rgba(0, 0, 255, 0.945);
+}
+
+/* other ways to signup - login */
+
+.footer-elements {
+  margin: var(--size16) var(--size0);
+  padding: var(--size2);
+  width: 20%;
+}
+
+.footer-text {
+  font-size: var(--size8);
+  margin-bottom: var(--size8);
+  display: flex;
+  justify-content: center;
+}
+
+.other-login-methods {
+  font-size: var(--size15);
+  display: flex;
+  justify-content: space-between;
+}
+.fas.fa-eye,
+.fa-eye-slash {
+  position: absolute;
+  right: 1.2rem;
+  margin-top: -2.8rem;
+  z-index: 9;
+  cursor: pointer;
+}

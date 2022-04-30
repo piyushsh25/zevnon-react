@@ -5,5 +5,4 @@ export const filterProducts = (products, sortBy) => {
         })
     }
     return products
-
 }

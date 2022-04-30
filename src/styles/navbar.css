@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=BioRhyme:wght@300&display=swap');
 @import url('https://engin-ui.netlify.app/components/style.css');
-.nav-container {
+.nav-container{
     box-sizing: border-box;
     margin: var(--size0);
     width: 100%;
     top: var(--size0);
-    position: sticky;
     padding: var(--size0);
     padding-right: var(--size6);
     border: var(--size0);
@@ -13,8 +12,8 @@
     background-color: rgb(221, 107, 215);
     flex-wrap: nowrap;
     height: 4rem;
-
 }
+
 
 
 .text.links .items {

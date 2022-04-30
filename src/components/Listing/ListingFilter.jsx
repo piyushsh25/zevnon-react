@@ -1,14 +1,10 @@
-
-import { useState } from "react";
 import { clearFilterHandler, discountHandler, priceHighToLowHandler, priceLowToHighHandler, priceSortHandler, sortByCategoryHandler, stars1Handler, stars2Handler, stars3Handler, stars4Handler, useSortedProduct } from "../../hooks/Filters";
 
 export const ProductFilter = () => {
     const { state,dispatch } = useSortedProduct();
-
-    const [filterMenu, showFilterMenu] = useState(true)
     return (<div className="body-container">
         <div className="side-bar">
-            {filterMenu ? <div className="filter-div-lg">
+            {state.filterMenu ? <div className="filter-div-lg">
                 <div className="h4 filter-header">
                     <div>Filters</div>
                     <div className="clear-filter"
@@ -18,16 +14,16 @@ export const ProductFilter = () => {
                 <div className="discount-percentage">
                     <div className="h5">Discount Price</div>
 
-                    <input step="25-" type="range" min="0" max="1000"
+                    <input step="250" type="range" min="0" max="1000"
                         list="tickmarks"
                         checked={state.discountValue}
-                        onClick={(e)=>discountHandler(e,dispatch)}
+                        onClick={(e)=>discountHandler(e.target.value,dispatch)}
                     />
                     <datalist id="tickmarks">
                         <option value="0">0</option>
-                        <option value="25">250</option>
-                        <option value="50">500</option>
-                        <option value="75">750</option>
+                        <option value="250">250</option>
+                        <option value="500">500</option>
+                        <option value="750">750</option>
                     </datalist>
                     <label className="filter-price">
                         <p id="price-max">0</p>
@@ -65,28 +61,28 @@ export const ProductFilter = () => {
                             type="radio" id="men"
                             name="category" value="men-clothing"
                             checked={state.sortBy === "men-clothing"}
-                            onClick={(e)=>sortByCategoryHandler(e,dispatch)}
+                            onClick={(e)=>sortByCategoryHandler(e.target.value,dispatch)}
                         />
                         <label className="category" htmlFor="men">Men Clothing</label>
                     </p>
                     <p>
                         <input className="category" type="radio" id="footwear" name="category" value="footwear"
                             checked={state.sortBy === "footwear"}
-                            onClick={(e)=>sortByCategoryHandler(e,dispatch)}
+                            onClick={(e)=>sortByCategoryHandler(e.target.value,dispatch)}
                         />
                         <label className="category" htmlFor="footwear">footwear</label>
                     </p>
                     <p>
                         <input className="category" type="radio" id="bags" name="category" value="bagpack"
                             checked={state.sortBy === "bagpack"}
-                            onClick={(e)=>sortByCategoryHandler(e,dispatch)}
+                            onClick={(e)=>sortByCategoryHandler(e.target.value,dispatch)}
                         />
                         <label className="category" htmlFor="kids">BagPacks</label>
                     </p>
                     <p>
                         <input className="category" type="radio" id="electronics" name="category" value="electronics"
                             checked={state.sortBy === "electronics"}
-                            onClick={(e)=>sortByCategoryHandler(e,dispatch)}
+                            onClick={(e)=>sortByCategoryHandler(e.target.value,dispatch)}
                         />
                         <label className="category" htmlFor="electronics">Electronics</label>
                     </p>
@@ -161,8 +157,8 @@ export const ProductFilter = () => {
                 </div>
 
 
-            </div> : true}
-            <div className="filter-div-md" onClick={() => showFilterMenu(!filterMenu)}>
+            </div> : ""}
+            <div className="filter-div-md" onClick={() => dispatch({type:"filterMenu"})}>
                 <i className="fas fa-bars"></i>
             </div>
         </div>
