@@ -21,8 +21,8 @@ export const Navbar = () => {
                 </div>
                 <div>
                     <ul className={showMenu ? "text-links-mobile" : "text links"}>
-                        <li className="items items-login">   <Link to="/">Login</Link></li>
-                        <li className="items items-signup">   <Link to="/">Sign up</Link></li>
+                        <li className="items items-login">   <Link to="/login">Login</Link></li>
+                        <li className="items items-signup">   <Link to="/sign-up">Sign up</Link></li>
                         <li className="items">
                             <div className="avatar-badge md">
                                 <Link to="/wishlist">
