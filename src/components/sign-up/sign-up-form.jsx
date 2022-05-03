@@ -1,79 +1,81 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { SignUpWays } from "./sign-up-ways"
-import { useReducer } from "react";
-import { reducerSignupFucntion } from "../../hooks/signup/reducerFunction";
+import { useSignup } from "../../hooks/signup/signup-context";
+import { SignUpSubmitHandler } from "../../hooks/auth/Signup-SubmitHandler";
+import { useAuth } from "../../hooks/auth/AuthContext";
 
 export const SignUpForm = () => {
-    const stateVariables = {
-        showPassword: false,
-        checkPassword: null,
-        checkFinalPassword: null,
-        name: "",
-        email: "",
-
+    const location = useLocation();
+    const navigate = useNavigate();
+    const { authDispatch } = useAuth()
+    const { signupState, signupDispatch } = useSignup();
+    const navigateTo = location?.state?.from?.pathname || "/"
+    const checkFromData = (signupState.name.split(" ").join().length < 5) || (signupState.checkPassword.length < 8) || (signupState.checkPassword.length < 8) || !(signupState.checkPassword === signupState.checkFinalPassword)
+    const SignUpButton = async (signupState,authDispatch) => {
+        await SignUpSubmitHandler(signupState,authDispatch);
+        navigate(navigateTo)
+        signupDispatch({type:"clear"})
     }
-    const [state, dispatch] = useReducer(reducerSignupFucntion, stateVariables)
-
 
     return <div className="main-login-container">
         <div className="form-signup-login">
             <div className="form">
                 <div className="nav-sign-up">
-
                     <div className="title-logo header"><i className="fab fa-deezer"></i></div>
                     <div className="title header">
                         <Link to="/">Zevnon</Link>
                     </div>
-
                 </div>
                 <input
                     className="input"
                     type="text"
                     id="name"
                     name="name"
-                    onChange={(e) => dispatch({ type: "name", payload: e.target.value })}
-                    value={state.name}
+                    onChange={(e) => signupDispatch({ type: "name", payload: e.target.value })}
+                    value={signupState.name}
                     placeholder="enter name"
                     required />
                 <input
                     className="input"
                     type="email"
                     id="email"
-                    onChange={(e) => dispatch({ type: "email", payload: e.target.value })}
-                    value={state.email}
+                    onChange={(e) => signupDispatch({ type: "email", payload: e.target.value })}
+                    value={signupState.email}
                     name="email"
                     placeholder="email-id"
                     required />
                 <div className="input-password1">
                     <input
                         className="input"
-                        type={!state.showPassword && "password"}
-
-                        onChange={(e) => dispatch({ type: "checkPassword", payload: e.target.value })}
+                        type={(!signupState.showPassword && "password") || "text"}
+                        onChange={(e) => signupDispatch({ type: "checkPassword", payload: e.target.value })}
                         id="password"
                         name="password1"
                         placeholder="password" />
 
-                    {state.showPassword ? <i onClick={() => dispatch({ type: "password" })} className="fas fa-eye"></i>
-                        : <i onClick={() => dispatch({ type: "password" })} className="fas fa-eye-slash"></i>}
+                    {signupState.showPassword ? <i onClick={() => signupDispatch({ type: "password" })} className="fas fa-eye"></i>
+                        : <i onClick={() => signupDispatch({ type: "password" })} className="fas fa-eye-slash"></i>}
                 </div>
                 <div>
                     <input
-                        className={(state.checkPassword === state.checkFinalPassword) ? "input" : "input error-input"}
+                        className={(signupState.checkPassword === signupState.checkFinalPassword) ? "input" : "input error-input"}
                         type="password"
-                        onChange={(e) => dispatch({ type: "checkFinalPassword", payload: e.target.value })}
+                        onChange={(e) => signupDispatch({ type: "checkFinalPassword", payload: e.target.value })}
                         id="password1"
                         name="password2"
                         placeholder="confirm password"
                     />
 
                 </div>
-                {!(state.checkPassword === state.checkFinalPassword) && <div className="error-message">Password do not match</div>}
+
+                {!(signupState.checkPassword === signupState.checkFinalPassword) && <div className="error-message">Password do not match</div>}
                 <button
+                    onClick={() => SignUpButton(signupState,authDispatch)}
                     className="submit"
-                    disabled={!(state.checkPassword === state.checkFinalPassword)}
+                    disabled={checkFromData}
                     id="submit" >signup</button>
                 <div className="change-method"><Link to="/login">Already have an account? Login Instead</Link></div>
+
             </div>
         </div>
         <SignUpWays />

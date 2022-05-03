@@ -1,20 +1,17 @@
 import { Link } from "react-router-dom"
+import { useAuth } from "../../hooks/auth/AuthContext";
+import { LoginSubmitHandler } from "../../hooks/auth/Login-SubmitHandler";
 
-import { useReducer } from "react";
-import { reducerSignupFucntion } from "../../hooks/signup/reducerFunction";
+
+import { useSignup } from "../../hooks/signup/signup-context";
 
 export const LoginForm = () => {
-    const stateVariables = {
-        showPassword: false,
-        checkPassword: null,
-        checkFinalPassword: null,
-        name: "",
-        email: "",
-
+    const {authDispatch}=useAuth();
+    const { signupState, signupDispatch } = useSignup()
+    const LoginButton = async (email,password,authDispatch) => {
+        await LoginSubmitHandler(email, password,authDispatch)
+        signupDispatch({type:"clear"})
     }
-    const [state, dispatch] = useReducer(reducerSignupFucntion, stateVariables)
-
-
     return <div className="main-login-container">
         <div className="form-signup-login">
             <div className="form">
@@ -30,28 +27,28 @@ export const LoginForm = () => {
                     className="input"
                     type="email"
                     id="email"
-                    onChange={(e) => dispatch({ type: "email", payload: e.target.value })}
-                    value={state.email}
+                    onChange={(e) => signupDispatch({ type: "email", payload: e.target.value })}
+                    value={signupState.email}
                     name="email"
                     placeholder="email-id"
                     required />
                 <div className="input-password1">
                     <input
                         className="input"
-                        type={!state.showPassword && "password"}
-
-                        onChange={(e) => dispatch({ type: "checkPassword", payload: e.target.value })}
+                        type={(!signupState.showPassword && "password") || "text"}
+                        onChange={(e) => signupDispatch({ type: "checkPassword", payload: e.target.value })}
                         id="password"
                         name="password1"
                         placeholder="password" />
 
-                    {state.showPassword ? <i onClick={() => dispatch({ type: "password" })} className="fas fa-eye"></i>
-                        : <i onClick={() => dispatch({ type: "password" })} className="fas fa-eye-slash"></i>}
+                    {signupDispatch.showPassword ? <i onClick={() => signupDispatch({ type: "password" })} className="fas fa-eye"></i>
+                        : <i onClick={() => signupDispatch({ type: "password" })} className="fas fa-eye-slash"></i>}
                 </div>
                 <button
+                    onClick={() => LoginButton(signupState.email, signupState.checkPassword,authDispatch)}
                     className="submit"
-                    id="submit" >signup</button>
-                <div className="change-method"><Link to="/sign-up">New here? signUp Instead</Link></div>
+                    id="submit" >Login</button>
+                <div className="change-method"><Link to="/sign-up">New here? signup Instead</Link></div>
             </div>
         </div>
     </div>

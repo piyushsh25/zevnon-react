@@ -4,7 +4,6 @@ import { useWishContext } from "../../hooks/wishList/wish-context"
 export const WishItems = () => {
     const { wishState, wishDispatch } = useWishContext();
     const { state, dispatch } = useCartContext();
-    console.log(wishState.wishItems.length)
     return <div>
         <div className="h4">Total items: {wishState.wishCount}</div>
         {wishState.wishItems.length === 0 ? <div className="empty-message"> No products availavle in wishlist.{console.log()}</div> :

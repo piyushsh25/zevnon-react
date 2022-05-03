@@ -22,7 +22,7 @@ const ProudctContext = createContext();
 export const useSortedProduct = () => useContext(ProudctContext)
 export function ProductProvider({ children }) {
     const [state, dispatch] = useReducer(reducerFunction, reducerValues)
-    const { products } = useProducts() 
+    const { products } = useProducts() ;
     const filteredProducts = filterProducts(products, state.sortBy)
     const starProducts = starredProducts(filteredProducts, state)
     const priceProducts = pricedProducts(starProducts, state.priceSelector)

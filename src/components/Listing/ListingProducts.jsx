@@ -7,7 +7,6 @@ export const ListingProducts = () => {
     const {state, sortPriceHighLow } = useSortedProduct();
     const { dispatch } = useCartContext();
     const { wishState, wishDispatch } = useWishContext();
-console.log(state.filterMenu)
     return (sortPriceHighLow.length === 0) ? <div className="shopping-section error-product-list">Errr... No products found. Try changing the filters</div> : <div className={`shopping-section product-listing-page ${state.filterMenu?`filterMenu`:``}`}>
         {sortPriceHighLow.map((product) => {
             return <div className="card" key={product.id}>

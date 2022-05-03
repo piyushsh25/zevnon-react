@@ -10,6 +10,14 @@ export function reducerSignupFucntion(state, action) {
             return { ...state, name: action.payload }
         case "email":
             return { ...state, email: action.payload }
+        case "clear":
+            return {
+                ...state, email: "",
+                showPassword: false,
+                checkPassword: "",
+                checkFinalPassword: "",
+                name: ""
+            }
         default:
             return state
     }
