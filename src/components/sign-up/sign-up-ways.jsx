@@ -1,10 +1,10 @@
 export const SignUpWays = () => {
-    return <div class="footer-elements">
-        <div class="footer-text">Other Signup Methods</div>
-        <div class="other-login-methods">
-            <div><i class="fab fa-google"></i></div>
-            <div><i class="fab fa-facebook-square"></i></div>
-            <div><i class="fab fa-twitter"></i></div>
+    return <div className="footer-elements">
+        <div className="footer-text">Other Signup Methods</div>
+        <div className="other-login-methods">
+            <div><i className="fab fa-google"></i></div>
+            <div><i className="fab fa-facebook-square"></i></div>
+            <div><i className="fab fa-twitter"></i></div>
         </div>
     </div>
 }

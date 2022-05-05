@@ -1,14 +1,17 @@
 import { useState } from "react"
 import { Link } from "react-router-dom";
+import { useAuth } from "../../hooks/auth/AuthContext";
 import { useCartContext } from "../../hooks/cart/cart-context";
 import { useWishContext } from "../../hooks/wishList/wish-context";
 
 import "../../styles/navbar.css"
-export const Navbar = () => {  
-    const {wishState}=useWishContext();
- 
+export const Navbar = () => {
+    const { wishState } = useWishContext();
+    const { authState, authDispatch } = useAuth();
     const [showMenu, setShowMenu] = useState(false)
-    const {state}=useCartContext()
+    const { state } = useCartContext();
+    let name = localStorage.getItem("zevnonName") || JSON.parse(localStorage?.getItem("userDetails"))?.firstName || "Guest";
+
     return (
         <div className="main-div">
             <header className={showMenu ? "nav-container nav" : "nav-container"}>
@@ -21,8 +24,8 @@ export const Navbar = () => {
                 </div>
                 <div>
                     <ul className={showMenu ? "text-links-mobile" : "text links"}>
-                        <li className="items items-login">   <Link to="/login">Login</Link></li>
-                        <li className="items items-signup">   <Link to="/sign-up">Sign up</Link></li>
+                        <li className="items items-login">   {authState.isLoggedIn ? <button className="logout-Button" onClick={() => authDispatch({ type: "LOGOUT" })}>Logout</button> : <Link to="/login">Login</Link>}</li>
+                        <li className="items items-signup">   {authState.isLoggedIn ? `Hi, ${name}` : <Link to="/sign-up">Sign up</Link>}</li>
                         <li className="items">
                             <div className="avatar-badge md">
                                 <Link to="/wishlist">

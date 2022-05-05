@@ -4,6 +4,5 @@ export function pricedProducts(product, price) {
             return items.price >= price
         })
     }   
-
     return product
 }

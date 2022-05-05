@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=BioRhyme:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BioRhyme&display=swap');
 @import url('https://engin-ui.netlify.app/components/style.css');
 .nav-container{
     box-sizing: border-box;
@@ -34,16 +34,21 @@
     border-radius: var(--size7);
     background-color: var(--color-success);
     color: var(--color-white);
+    
 }
-
+.logout-Button{
+background-color: inherit;
+border-width: 0;
+}
 .text.links .items:nth-child(1):hover {
     background-color: var(--color-white);
     color: var(--color-success);
 }
 
 .text.links .items:nth-child(2) {
-    width: 8rem;
+    width: auto;
     height: var(--size20);
+    padding: 0 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -124,13 +129,14 @@ justify-content: center;
 align-items: center;
 }
 .text-links-mobile .items.items.items-signup{
-    width: 8rem;
+    width: auto;
     height: var(--size20);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: var(--size7);
     background-color: var(--color-white);
+
 }
 .text-links-mobile .items.items.items-signup:hover{
     color: var(--color-white);
@@ -139,7 +145,7 @@ align-items: center;
 }
 
 .text-links-mobile .items.items.items-login {
-    width: 8rem;
+    width: auto;
     height: var(--size20);
     display: flex;
     align-items: center;

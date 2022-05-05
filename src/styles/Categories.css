@@ -4,11 +4,13 @@
     display: flex;
     flex-wrap: wrap;
     margin: var(--size0) var(--size10);
+
 }
 
 .card {
     margin: var(--size20);
     box-shadow: 1px 1px 5px var(--color-black);
+    height: auto;
 }
 
 .card .text-div .header-top {
@@ -26,11 +28,13 @@
     color: var(--color-white);
     margin-left: var(--size0);
 }
-
+.card.text-overlay-card{
+    height: auto;
+}
 .card.text-overlay-card .text-div .header-bottom {
     margin-left: var(--size0);
     left: var(--size0);
-    top: 52%;
+    top: 47%;
     padding:0 var(--size8);
     font-size: var(--size12);
     color: var(--color-black);
