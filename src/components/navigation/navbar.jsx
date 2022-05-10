@@ -9,7 +9,8 @@ export const Navbar = () => {
     const { wishState } = useWishContext();
     const { authState, authDispatch } = useAuth();
     const [showMenu, setShowMenu] = useState(false)
-    const { state } = useCartContext();
+    const { cartItems,totalCartItemsCount } = useCartContext();
+    const {wishItems}=useWishContext();
     let name = localStorage.getItem("zevnonName") || JSON.parse(localStorage?.getItem("userDetails"))?.firstName || "Guest";
 
     return (
@@ -24,15 +25,15 @@ export const Navbar = () => {
                 </div>
                 <div>
                     <ul className={showMenu ? "text-links-mobile" : "text links"}>
-                        <li className="items items-login">   {authState.isLoggedIn ? <button className="logout-Button" onClick={() => authDispatch({ type: "LOGOUT" })}>Logout</button> : <Link to="/login">Login</Link>}</li>
-                        <li className="items items-signup">   {authState.isLoggedIn ? `Hi, ${name}` : <Link to="/sign-up">Sign up</Link>}</li>
+                        <li className="items items-login">   {authState.isLoggedIn && authState.token ? <button className="logout-Button" onClick={() => authDispatch({ type: "LOGOUT" })}>Logout</button> : <Link to="/login">Login</Link>}</li>
+                        <li className="items items-signup">   {authState.isLoggedIn && authState.token ? `Hi, ${name}` : <Link to="/sign-up">Sign up</Link>}</li>
                         <li className="items">
                             <div className="avatar-badge md">
                                 <Link to="/wishlist">
                                     <div>
                                         <i className="fas fa-heart"></i>
                                         <div> {showMenu && "wishList"}</div>
-                                        <div className="badge text">{wishState.wishCount}</div>
+                                        <div className="badge text">{wishItems.length}</div>
                                     </div>
                                 </Link>
 
@@ -44,7 +45,7 @@ export const Navbar = () => {
                                     <div>
                                         <i className="fas fa-shopping-cart"></i>
                                         {showMenu && "cart"}
-                                        <div className="badge text">{state.cartCount}</div>
+                                        <div className="badge text">{totalCartItemsCount}</div>
                                     </div>
                                 </Link>
                             </div>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { useAuth } from "../../hooks/auth/AuthContext";
 import { LoginSubmitHandler } from "../../hooks/auth/Login-SubmitHandler";
 
@@ -6,11 +6,14 @@ import { LoginSubmitHandler } from "../../hooks/auth/Login-SubmitHandler";
 import { useSignup } from "../../hooks/signup/signup-context";
 
 export const LoginForm = () => {
-    const {authDispatch}=useAuth();
+    const { authDispatch } = useAuth();
     const { signupState, signupDispatch } = useSignup()
-    const LoginButton = async (email,password,authDispatch) => {
-        await LoginSubmitHandler(email, password,authDispatch)
-        signupDispatch({type:"clear"})
+    const location=useLocation();
+    const navigate=useNavigate();
+    const LoginButton = async (email, password, authDispatch) => {
+        await LoginSubmitHandler(email, password, authDispatch)
+        console.log(location)
+        signupDispatch({ type: "clear" })
     }
     return <div className="main-login-container">
         <div className="form-signup-login">
@@ -45,9 +48,14 @@ export const LoginForm = () => {
                         : <i onClick={() => signupDispatch({ type: "password" })} className="fas fa-eye-slash"></i>}
                 </div>
                 <button
-                    onClick={() => LoginButton(signupState.email, signupState.checkPassword,authDispatch)}
+                    onClick={() => LoginButton(signupState.email, signupState.checkPassword, authDispatch)}
                     className="submit"
                     id="submit" >Login</button>
+
+                <button
+                    onClick={() => LoginButton("test@gmail.com", "test123", authDispatch)}
+                    className="submit"
+                    id="submit" >Guest login</button>
                 <div className="change-method"><Link to="/sign-up">New here? signup Instead</Link></div>
             </div>
         </div>

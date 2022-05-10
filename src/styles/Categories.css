@@ -20,7 +20,9 @@
     font-family: 'BioRhyme', serif;
     font-weight: bolder;
 }
-
+.card.text-overlay-card.no-footer{
+    height: auto;
+}
 .text-overlay-card .text-div .header-top {
     top: 0%;
     left: 0%;

@@ -7,5 +7,5 @@ export const RedirectRoute = () => {
     const toNavigatePath=location?.state?.from?.pathname || "/";
     return (
         !authState.isLoggedIn ?
-            <Outlet /> : <Navigate to={toNavigatePath} replace/>)
+            <Outlet/> : <Navigate to={toNavigatePath} replace/>)
 }

@@ -12,6 +12,7 @@ export const SignUpSubmitHandler = async (signupState,authDispatch) => {
     if (response.status === 200 || response.status === 201) {
       localStorage.setItem("token", response.data.encodedToken);
       localStorage.setItem("zevnonName",name)
+      localStorage.setItem("isLoggedIn", true);
       authDispatch({ type: "SIGNUP",payload:response.data.encodedToken })
     }
   } catch (error) {

@@ -3,17 +3,17 @@ import { useCartContext } from "../../hooks/cart/cart-context";
 import { useWishContext } from "../../hooks/wishList/wish-context";
 
 export const CartProduct = () => {
-    const { state, dispatch } = useCartContext();
-    const { wishState, wishDispatch } = useWishContext();
-    let {addToishListMessage}=useWishContext();
+    const { state, dispatch, cartItems, removeFromCartHandler, updateItemHandler, totalPrice } = useCartContext();
+    const { wishItems, addToWishList, wishState, wishDispatch,removeFromWishList } = useWishContext();
+    let  addToWishListMessage=false;
     return <div>
         <div className="h3">total items in cart: {state.cartCount}</div>
-        {state.cartItems.length === 0 ? <div className="empty-message"> No products availavle in cart.</div> :
+        {cartItems.length === 0 ? <div className="empty-message"> No products availavle in cart.</div> :
 
             <div className="product-summary">
 
                 <div className="product-content">
-                    {state.cartItems.map((items) => {
+                    {cartItems.map((items) => {
 
                         return <div className="card text-overlay-card no-footer" key={items.id}>
                             <div className="img-div">
@@ -29,9 +29,9 @@ export const CartProduct = () => {
                                 </div>
                                 <div className="header-bottom">
                                     <ul className="increase-decrease">
-                                        <button onClick={() => items.quantity <= 1 ? dispatch({ type: "removeHandler", payload: items }) : dispatch({ type: "decrementHandler", payload: items })}>-</button>
-                                        <li>{items.quantity}</li>
-                                        <button onClick={() => dispatch({ type: "incrementHandler", payload: items })}>+</button>
+                                        <button onClick={() => items.qty <= 1 ? removeFromCartHandler(items) : updateItemHandler(items._id, "decrement")}>-</button>
+                                        <li>{items.qty}</li>
+                                        <button onClick={() => updateItemHandler(items._id, "increment")}>+</button>
                                     </ul>
                                 </div>
                                 <div className="description">{items.title}</div>
@@ -40,22 +40,20 @@ export const CartProduct = () => {
                                     <li className="h4">${items.price}</li>
                                     <li className="discounted-percentage">{(items.discountedPrice / items.price * 100).toFixed(2)}% off.</li>
                                     <li>
-                                        <button className="action-button" onClick={() => dispatch({ type: "removeHandler", payload: items })}> Remove </button>
+                                        <button className="action-button" onClick={() => removeFromCartHandler(items)}> Remove </button>
                                     </li>
                                 </ul>
-                                <button className="cart-wishList" onClick={
-                                    (() => wishDispatch({ type: "wishlist", payload: items }))
-                                }>
-                                    {/* Add to wish */}
-                                       
-                                    {addToishListMessage=wishState.wishItems.some((item) => {
-                                        if (item.id === items.id) {
-                                            return true;
-                                        }
-                                    })
-                               
+                                {/* Add to wish */}
+
+                                {addToWishListMessage = wishItems.some((item) => {
+                                    if (item.id === items.id) {
+                                        return true;
                                     }
-                                   {addToishListMessage?"In wishList":"Add to wishList"}
+                                })
+
+                                }
+                                <button className="cart-wishList" onClick={addToWishListMessage?(()=>removeFromWishList(items)) : (() => addToWishList(items))}>
+                                    {addToWishListMessage ? "In wishList" : "Add to wishList"}
                                 </button>
                             </div>
                         </div>
@@ -71,7 +69,7 @@ export const CartProduct = () => {
                         </div>
                     </div>
                     <div className="h4">
-                        Total : $ {state.totalPrice}
+                        Total : $ {totalPrice}
                     </div>
 
                     <div className="button outline">CheckOut</div>
@@ -84,10 +82,10 @@ export const CartProduct = () => {
                     </div>
                     <div>
                         <div className="total-price">
-                            {state.cartItems.map((items) => {
+                            {cartItems.map((items) => {
                                 return <div key={items.id}>
                                     <div>{items.title}</div>
-                                    <div>{items.quantity} * ${items.price} =${items.quantity * items.price}</div>
+                                    <div>{items.qty} * ${items.price} =${items.qty * items.price}</div>
                                 </div>
                             })}
                         </div>
