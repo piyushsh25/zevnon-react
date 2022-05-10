@@ -3,7 +3,6 @@
 .wishlist-summary {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-evenly;
 }
 
 .line-through {
@@ -18,4 +17,12 @@
 .h4 {
   margin-left: var(--size10);
   color: var(--color-info);
+}
+
+.wishlist-summary .product-content{
+  width: 100%;
+}
+.total-wishlist-items
+{
+  margin-top: 4rem;
 }

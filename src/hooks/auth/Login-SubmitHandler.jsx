@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const LoginSubmitHandler = async (email, password,authDispatch) => {
+export const LoginSubmitHandler = async (email, password, authDispatch) => {
 
     try {
         const response = await axios.post(`/api/auth/login`, {
@@ -11,10 +11,9 @@ export const LoginSubmitHandler = async (email, password,authDispatch) => {
             const { encodedToken, foundUser } = response.data;
             localStorage.setItem("token", encodedToken)
             localStorage.setItem("userDetails", JSON.stringify(foundUser))
-            authDispatch({type:"LOGIN",payload:encodedToken})
-
+            localStorage.setItem("isLoggedIn", true);
+            authDispatch({ type: "LOGIN", payload: encodedToken })
         }
-
     } catch (error) {
         console.log(error)
     }
