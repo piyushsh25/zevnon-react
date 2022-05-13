@@ -15,23 +15,22 @@ export function CartProvider({ children }) {
         cartCount: 0
     })
 
+
     const addToCartHandler = async (product) => {
-        console.log(product)
         try {
-            const addToCartResponse = await axios.post(`api/user/cart`,
-                {product}, {
-                headers: {
-                    authorization: authState.token,
-                },
-            })
-            
+            const addToCartResponse = await axios.post("/api/user/cart",
+                { product },
+                {
+                    headers: {
+                        authorization: authState.token
+                    }
+                }
+            )
             setcartItems(addToCartResponse.data.cart)
         } catch (err) {
             console.log(err)
-            
         }
     }
-
     const removeFromCartHandler = async (product) => {
         const { _id: productId } = product
         try {
@@ -94,7 +93,7 @@ export function CartProvider({ children }) {
         })()
 
     }, [authState.isLoggedIn], [cartItems])
-    return <CartContext.Provider value={{ state, dispatch, addToCartHandler, cartItems, removeFromCartHandler, updateItemHandler, totalCartItemsCount, totalPrice,setcartItems }}>
+    return <CartContext.Provider value={{ state, dispatch, addToCartHandler, cartItems, removeFromCartHandler, updateItemHandler, totalCartItemsCount, totalPrice, setcartItems }}>
         {children}
     </CartContext.Provider>
 }

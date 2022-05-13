@@ -1,5 +1,5 @@
+import axios from "axios"
 import { useNavigate } from "react-router-dom"
-import { useProducts } from "../../hooks"
 import { useAuth } from "../../hooks/auth/AuthContext"
 import { useCartContext } from "../../hooks/cart/cart-context"
 import { useWishContext } from "../../hooks/wishList/wish-context"
@@ -7,8 +7,7 @@ import "../../styles/ProductPage.css"
 export const ProductBody = (product) => {
     // const { categoryName, discountedPrice, id, img, price, rating, size, title, _id } = product;
     const { addToWishList, wishItems, removeFromWishList } = useWishContext();
-    const { addToCartHandler, cartItems } = useCartContext();
-    const { products } = useProducts()
+    const { setcartItems,addToCartHandler, cartItems } = useCartContext();
     const { authState } = useAuth();
     const navigate = useNavigate();
     let inWishList, inCart;
@@ -30,8 +29,6 @@ export const ProductBody = (product) => {
     const addToCart = (product) => {
         authState.isLoggedIn ? addToCartHandler(product) : navigate("/login")
     }
-
-
     return <div className="product-page-body">
         <div className="product-body img">
             <img class="img-square" src={`${product.img}`} alt="" />
@@ -84,6 +81,7 @@ export const ProductBody = (product) => {
                     {<li className="card-icons text-icon" onClick={() => authState.isLoggedIn ? addToishListHandler(product) : navigate("/login")}>
                         <button>{inWishList ? "In wishList" : "wishList +"}</button>
                     </li>}
+
                 </ul>
 
 
