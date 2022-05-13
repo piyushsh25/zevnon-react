@@ -12,7 +12,6 @@ export const LoginForm = () => {
     const navigate=useNavigate();
     const LoginButton = async (email, password, authDispatch) => {
         await LoginSubmitHandler(email, password, authDispatch)
-        console.log(location)
         signupDispatch({ type: "clear" })
     }
     return <div className="main-login-container">

@@ -16,16 +16,19 @@ export function CartProvider({ children }) {
     })
 
     const addToCartHandler = async (product) => {
+        console.log(product)
         try {
-            const addToCartResponse = await axios.post("api/user/cart",
-                { product }, {
+            const addToCartResponse = await axios.post(`api/user/cart`,
+                {product}, {
                 headers: {
                     authorization: authState.token,
                 },
             })
+            
             setcartItems(addToCartResponse.data.cart)
         } catch (err) {
             console.log(err)
+            
         }
     }
 
@@ -66,8 +69,8 @@ export function CartProvider({ children }) {
         return accumulator + currentValue.qty
     }
 
-    const totalPriceHandler=(accumulator, currentValue)=>{
-        return accumulator+(currentValue.price *currentValue.qty)
+    const totalPriceHandler = (accumulator, currentValue) => {
+        return accumulator + (currentValue.price * currentValue.qty)
     }
     const totalCartItemsCount = cartItems.reduce(totalCartItemsHandler, 0)
     const totalPrice = cartItems.reduce(totalPriceHandler, 0)
@@ -75,7 +78,7 @@ export function CartProvider({ children }) {
         (async () => {
             if (authState.isLoggedIn) {
                 try {
-                    const response = await axios.get("api/user/cart", {
+                    const response = await axios.get(`api/user/cart`, {
                         headers: {
                             authorization: authState.token,
                         }
@@ -91,7 +94,7 @@ export function CartProvider({ children }) {
         })()
 
     }, [authState.isLoggedIn], [cartItems])
-    return <CartContext.Provider value={{ state, dispatch, addToCartHandler, cartItems, removeFromCartHandler, updateItemHandler, totalCartItemsCount,totalPrice }}>
+    return <CartContext.Provider value={{ state, dispatch, addToCartHandler, cartItems, removeFromCartHandler, updateItemHandler, totalCartItemsCount, totalPrice,setcartItems }}>
         {children}
     </CartContext.Provider>
 }

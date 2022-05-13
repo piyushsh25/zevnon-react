@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/auth/AuthContext";
 import { useCartContext } from "../../hooks/cart/cart-context";
 import { useSortedProduct } from "../../hooks/Filters";
@@ -26,6 +26,9 @@ export const ListingProducts = () => {
 
         authState.isLoggedIn ? inWishList ? removeFromWishList(product) : addToWishList(product) : navigate("/")
     }
+    const addToCart=(product)=>{
+        authState.isLoggedIn ? addToCartHandler(product) : navigate("/login")
+    }
     return (sortPriceHighLow.length === 0) ? <div className="shopping-section error-product-list">Errr... No products found. Try changing the filters</div> : <div className={`shopping-section product-listing-page ${state.filterMenu ? `filterMenu` : ``}`}>
         {sortPriceHighLow.map((product) => {
             return <div className="card" key={product.id}>
@@ -33,7 +36,7 @@ export const ListingProducts = () => {
                     <img src={product.img} alt="product d" />
                 </div>
                 <div className="text-div">
-                    <div className="header-top">{product.title.slice(0, 20)}...</div>
+                    <Link to={`/item/${product._id}`}>  <div className="header-top">{product.title.slice(0, 20)}...</div></Link>
                     <div className="header-bottom">
                         <div className="discounted price">${product.price}</div>
                         <div className="selling-price line-through">
@@ -51,8 +54,8 @@ export const ListingProducts = () => {
                         })
                         }
 
-                        {!inCart ? <li className="card-icons text-icon" onClick={() => authState.isLoggedIn ? addToCartHandler(product) : navigate("/login")}><i className="fas fa-shopping-cart"></i></li> : <li className="card-icons text-icon" onClick={navigateHandler}> Cart </li>}
-
+                        {!inCart ? <li className="card-icons text-icon" onClick={() => addToCart(product)}><i className="fas fa-shopping-cart"></i></li> : <li className="card-icons text-icon" onClick={navigateHandler}> Cart </li>}
+                       
                         {
                             inWishList = wishItems.some((item) => {
                                 if (item.id === product.id) {
