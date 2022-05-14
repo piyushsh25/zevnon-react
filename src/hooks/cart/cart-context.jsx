@@ -1,7 +1,6 @@
 import axios from "axios";
 import { createContext, useContext } from "react";
 import { useReducer, useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import { reducerFunction } from "./cart-controllers";
 
@@ -9,6 +8,7 @@ const CartContext = createContext();
 export const useCartContext = () => useContext(CartContext)
 export function CartProvider({ children }) {
     const { authState } = useAuth();
+    const [search,setSearch]=useState("")
     const [cartItems, setcartItems] = useState([])
     const [state, dispatch] = useReducer(reducerFunction, {
         totalPrice: 0,
@@ -93,7 +93,7 @@ export function CartProvider({ children }) {
         })()
 
     }, [authState.isLoggedIn], [cartItems])
-    return <CartContext.Provider value={{ state, dispatch, addToCartHandler, cartItems, removeFromCartHandler, updateItemHandler, totalCartItemsCount, totalPrice, setcartItems }}>
+    return <CartContext.Provider value={{ state, dispatch, addToCartHandler, cartItems, removeFromCartHandler, updateItemHandler, totalCartItemsCount, totalPrice, setcartItems,search,setSearch }}>
         {children}
     </CartContext.Provider>
 }

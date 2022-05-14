@@ -34,7 +34,7 @@ export const CartProduct = () => {
                                         <button onClick={() => updateItemHandler(items._id, "increment")}>+</button>
                                     </ul>
                                 </div>
-                                <div className="description">{items.title}</div>
+                                <Link to={`/item/${items._id}`} className="description">{items.title}</Link>
 
                                 <ul className="cart-page-footer">
                                     <li className="h4">${items.price}</li>

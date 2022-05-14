@@ -1,18 +1,23 @@
-import { useState } from "react"
-import { Link } from "react-router-dom";
+import { useState,useRef ,useEffect} from "react"
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/auth/AuthContext";
 import { useCartContext } from "../../hooks/cart/cart-context";
+import { searchHandler } from "../../hooks/search/search-controllers";
+import { useProducts } from "../../hooks/useProduct";
 import { useWishContext } from "../../hooks/wishList/wish-context";
-
 import "../../styles/navbar.css"
 export const Navbar = () => {
-    const { wishState } = useWishContext();
     const { authState, authDispatch } = useAuth();
-    const [showMenu, setShowMenu] = useState(false)
-    const { cartItems,totalCartItemsCount } = useCartContext();
-    const {wishItems}=useWishContext();
+    const { totalCartItemsCount } = useCartContext();
+    const { wishItems } = useWishContext();
     let name = localStorage.getItem("zevnonName") || JSON.parse(localStorage?.getItem("userDetails"))?.firstName || "Guest";
-
+    const navigate = useNavigate();
+    const {search,setSearch}=useCartContext();
+    const [showMenu, setShowMenu] = useState(false)
+    const focusSearch = useRef("")
+    useEffect(()=>{
+        focusSearch.current.focus();
+    },[])
     return (
         <div className="main-div">
             <header className={showMenu ? "nav-container nav" : "nav-container"}>
@@ -21,7 +26,7 @@ export const Navbar = () => {
                     <div className="title">
                         <Link to="/">Zevnon</Link>
                     </div>
-                    <input type="text" className="input" placeholder="search Zevnon" />
+                    <input onChange={(e)=>setSearch(e.target.value)} onClick={()=>searchHandler(navigate)} ref={focusSearch}  type="text" className="input" placeholder="search Zevnon" />
                 </div>
                 <div>
                     <ul className={showMenu ? "text-links-mobile" : "text links"}>
