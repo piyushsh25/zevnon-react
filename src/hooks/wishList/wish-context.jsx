@@ -68,7 +68,7 @@ useEffect(()=>{
 
         )()
 },[authState.isLoggedIn])
-    return <WishContext.Provider value={{addToWishList,wishItems,removeFromWishList}}>
+    return <WishContext.Provider value={{addToWishList,wishItems,removeFromWishList,setWishItems}}>
         {children}
     </WishContext.Provider>
 }

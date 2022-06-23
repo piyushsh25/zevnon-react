@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import { useCartContext } from "../../hooks/cart/cart-context";
 import { useWishContext } from "../../hooks/wishList/wish-context"
 
 export const WishItems = () => {
-    const { wishState, wishDispatch, wishItems, addToishList ,removeFromWishList} = useWishContext();
-    const { state, dispatch,cartItems,addToCartHandler } = useCartContext();
-    let addToCartMessage=false;
+    const { wishItems, removeFromWishList } = useWishContext();
+    const { cartItems, addToCartHandler } = useCartContext();
+    let addToCartMessage = false;
     return <div>
         <div className="h4 total-wishlist-items">Total items: {wishItems.length}</div>
         {wishItems.length === 0 ? <div className="empty-message"> No products availavle in wishlist.</div> :
@@ -19,7 +20,7 @@ export const WishItems = () => {
                                 <div className="header-top">
                                     <div>${items.price} <span className="line-through">${items.price + items.discountedPrice}</span> </div>
                                 </div>
-                                <div className="description">{items.title}</div>
+                                <Link to={`/item/${items._id}`} className="description">{items.title}</Link>
                                 <ul>
                                     <li>
                                         <div type="button" >

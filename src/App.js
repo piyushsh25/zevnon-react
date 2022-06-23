@@ -8,6 +8,7 @@ import { SignUp } from "./pages/Sign-up";
 import { Login } from "./pages/Login";
 import { RequiresAuth } from "./hooks/auth/RequiresAuth";
 import { RedirectRoute } from "./hooks/auth/Redirect-routes";
+import { ProductPage } from "./pages/ProductPage";
 
 
 
@@ -28,6 +29,7 @@ function App() {
               <WishList />
             } />
           </Route>
+          
           {/* redirect routes */}
           <Route element={<RedirectRoute />}>
             <Route path="/sign-up"
@@ -38,7 +40,7 @@ function App() {
               <Login />} />
           </Route>
 
-
+          <Route path="/item/:productId" element={<ProductPage />} />
           <Route path="*" element={<div>Error</div>} />
 
         </Routes>
